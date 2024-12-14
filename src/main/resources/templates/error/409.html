@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Conflict</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"/>
+    <script defer th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-black">
+    <div class="container-fluid">
+        <div class="m-2">
+            <a class="navbar-brand fs-1">
+                Land Side
+            </a>
+        </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row fs-4 gap-3">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/appointments">Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/appointments-form">Make appointment</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h3 class="alert alert-warning" th:text="${message}"> </h3>
+</body>
+</html>

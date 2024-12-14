@@ -1,0 +1,82 @@
+##In de form, geef de truck de license plate "JV-201-LL" en de tijd rond hetgene wat in dit bestand staat zodat de scenarios van dit bestand kan lukken
+
+### POST new Truck Arrival - truck met appointment arriveerd op tijd
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "JV-201-LL",
+  "arrivalTime": "2024-11-10 19:00"
+}
+### POST new Truck Arrival - truck met appointment arriveerd te vroeg
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "JV-201-LL",
+  "arrivalTime": "2024-11-10 18:50"
+}
+### POST new Truck Arrival - truck met appointment arriveerd te laat
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "JV-201-LL",
+  "arrivalTime": "2024-11-10 20:10"
+}
+
+
+
+
+### POST new Truck Arrival - truck #1 zonder appointment arriveerd
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "AB-100",
+  "arrivalTime": "2024-11-10 05:00",
+  "materialType": "SLAK"
+}
+
+### POST new Truck Arrival - truck #2 zonder appointment arriveerd
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "XZ-200",
+  "arrivalTime": "2024-11-10 05:10",
+  "materialType": "CEMENT"
+}
+
+### POST new Truck Arrival - truck #3 zonder appointment arriveerd niet op tijd
+POST localhost:8080/api/arrivals
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "GZ-347",
+  "arrivalTime": "2024-11-10 14:00",
+  "materialType": "PETCOKE"
+}
+
+
+
+
+
+
+
+###POST new Delivery - truck met appointment laad materiaal op looband en krijgt een PDT van warehouse
+POST localhost:8080/api/delivery
+Content-Type: application/json
+
+{
+  "licensePlate": "JV-201-LL"
+}
+
+
+###POST new Truck Departure - truck met appointment weegt zichwelf en krijgt WBT en verlaat het terrein
+POST localhost:8080/api/departures
+Content-Type: application/json
+
+{
+  "truckLicensePlate": "JV-201-LL"
+}

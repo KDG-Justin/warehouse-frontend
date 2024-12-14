@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Detail</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"/>
+    <script defer th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-black">
+    <div class="container-fluid">
+        <div class="m-2">
+            <a class="navbar-brand fs-1">
+                Land Side
+            </a>
+        </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row fs-4 gap-3">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/appointments">Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/appointments-form">Make appointment</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container bg-dark text-white p-5 rounded text-center mt-2">
+    <div class="row">
+        <div class="col-6">
+            <h3 class="text-start mb-4">Seller information</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Name: </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.sellerName}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Address: </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.sellerAddress}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Truck: </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.truckLicensPlate}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Arrival Date (d/m/y): </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.arrivalTime.dayOfMonth} + '/' + ${appointmentDto.arrivalTime.monthValue} + '/' + ${appointmentDto.arrivalTime.year}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Arrival Time: </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.arrivalTime.hour} + ':' + ${#numbers.formatInteger(appointmentDto.arrivalTime.minute, 2)}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3 class="text-start mb-4">Material information</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <p>Material Type: </p>
+                    </div>
+                    <div class="col-auto">
+                        <p th:text="${appointmentDto.materialType}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

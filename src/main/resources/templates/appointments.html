@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"/>
+    <script defer th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-black">
+    <div class="container-fluid">
+        <div class="m-2">
+            <a class="navbar-brand fs-1">
+                Land Side
+            </a>
+        </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row fs-4 gap-3">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://localhost:8080/appointments">Appointments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/appointments-form">Make appointment</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table mx-auto">
+                <tr>
+                    <th>Person</th>
+                    <th>Arrival Time</th>
+                    <th>Material</th>
+                </tr>
+                <tr th:each="appointmentDto : ${appointmentDtoCollection}" style="cursor: pointer;">
+                    <td>
+                        <a th:href="@{/appointments/{id}(id=${appointmentDto.id})}" th:text="${appointmentDto.sellerName}" style="text-decoration: none"></a>
+                    </td>
+                    <td th:text="${appointmentDto.arrivalTime.dayOfMonth} + '/' + ${appointmentDto.arrivalTime.monthValue} + ' - ' + ${appointmentDto.arrivalTime.hour} + ':' + ${#numbers.formatInteger(appointmentDto.arrivalTime.minute, 2)}"></td>
+                    <td th:text="${appointmentDto.materialType}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

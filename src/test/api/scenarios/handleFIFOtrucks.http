@@ -1,0 +1,7 @@
+### POST FIFO trucks
+POST localhost:8080/api/fifo
+content-Type: application/json
+
+{
+
+}
